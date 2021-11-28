@@ -27,7 +27,7 @@ jobs:
       - 
         name: Docker build
         run: |
-          docker build -t ${{ secrets.DOCKER_REPOSITORY }} :${{steps.tag.outputs.tag}} .
+          docker build -t ${{ secrets.DOCKER_REPOSITORY }}:${{steps.tag.outputs.tag}} .
           if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }
       -
         name: Docker push
