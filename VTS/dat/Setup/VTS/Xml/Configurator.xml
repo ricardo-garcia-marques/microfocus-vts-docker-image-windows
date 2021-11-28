@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<AppSettings>
+    		<AppTitle>Micro Focus VTS 2020 Configuration Wizard</AppTitle>
+    		<ProductName>Micro Focus Virtual Table Server 2020</ProductName>
+    		<SilentMode>false</SilentMode>
+    		<UserInputFile>..\dat\Setup\VTS\Xml\UserInput.xml</UserInputFile>
+    		<DumpToLog>true</DumpToLog>
+    		<LogFile>..\dat\Setup\VTS\configurator_#datetime#.log</LogFile>
+    		<SummaryLog>..\dat\Setup\VTS\summary_#datetime#.log</SummaryLog>
+    		<SupportMsBuild>true</SupportMsBuild> 
+    		<DefaultDisplayName>InstallationDisplay</DefaultDisplayName>   		
+    	</AppSettings>
+	
+	<MsBuildInfo>
+		<MsBuildSchema>..\dat\Setup\VTS\Schemas\Microsoft.Build.xsd</MsBuildSchema>
+	  	<DefaultGroup>RunBeforeFinish</DefaultGroup>
+	  	<Groups>	    		
+	    		<Group>
+	      			<Name>RunBeforeFinish_inMSIInstall</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeFinish_inMSIInstall</Targets>
+	      			<DisplayName>ProductSelectionDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunBeforeFinish_inUpgrade</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeFinish_inUpgrade</Targets>
+	      			<DisplayName>ProductSelectionDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunBeforeFinish_inRepairORPatchUninstallation</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeFinish_inRepairORPatchUninstallation</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunBeforeFinish_inPatchInstallation</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeFinish_inPatchInstallation</Targets>
+	      			<DisplayName>ProductSelectionDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunAfterFinish_inMSIInstall</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunAfterFinish_inMSIInstall</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunAfterFinish_inUpgrade</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunAfterFinish_inUpgrade</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunAfterFinish_inRepair</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunAfterFinish_inRepair</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunAfterFinish_inPatchInstallation</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunAfterFinish_inPatchInstallation</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunBeforeModify_inUninstallationORUpgrade</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeModify_inUninstallationORUpgrade</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunBeforeModify_inPatchInstallation</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeModify_inPatchInstallation</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunBeforeModify_inRepairORPatchUninstallation</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeModify_inRepairORPatchUninstallation</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	    		<Group>
+	      			<Name>RunBeforeUninstall_inUninstallationORUpgrade</Name>
+	      			<MSBuildFile>..\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj</MSBuildFile>
+	      			<Targets>RunBeforeUninstall_inUninstallationORUpgrade</Targets>
+	      			<DisplayName>InstallationDisplay</DisplayName>
+	    		</Group>
+	  	</Groups>
+	</MsBuildInfo>
+	
+	<Displays>
+	
+		<Display>
+			<DisplayName>ProductSelectionDisplay</DisplayName>
+			 <!-- Version/Product Related Images used by the application/pages -->
+			  <Images>
+				  <Image>
+				  	<Name>Welcome Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_1_Welcome.bmp</File>	  	
+				  </Image>
+				  <Image>
+				  	<Name>Confirmation Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_2_Confirmation.bmp</File>	  	
+				  </Image>
+				  <Image>
+				  	<Name>Installation Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_3_Installation.bmp</File>	  	
+				  </Image>
+				  <Image>
+				  	<Name>Finish Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_4_Finish.bmp</File>	  	
+				  </Image>		  	  
+			  </Images>
+			  
+			<!-- Display pages and order  -->
+			  <Pages>	
+			         <Page>	
+					  <Name>PageVTSConfiguration</Name>
+					  <Assembly>.\HP.Configurator.SelectionPages.dll</Assembly>
+					  <Class>HP.Configurator.SelectionPages.VTSControl</Class>
+					  <ImageName>Welcome Image</ImageName>
+					  <DisplayOrder>1</DisplayOrder>
+				  </Page>
+				  <Page>	
+					  <Name>PageDBDetails</Name>
+					  <Assembly>.\HP.Configurator.SelectionPages.dll</Assembly>
+					  <Class>HP.Configurator.SelectionPages.DBPathControl</Class>
+					  <ImageName>Welcome Image</ImageName>
+					  <DisplayOrder>2</DisplayOrder>
+				  </Page>	 
+				  <Page>
+					  <Name>PageInstaller</Name>
+					  <Assembly>.\HP.PC.PCS.PageControls.dll</Assembly>
+					  <Class>HP.PC.PCS.Configurator.Pages.PageInstaller</Class>
+					  <ImageName>Installation Image</ImageName>
+					  <DisplayOrder>3</DisplayOrder>
+				  </Page>
+			  </Pages> 
+		  </Display>
+		  <Display>
+		  	<DisplayName>InstallationDisplay</DisplayName>
+			 <!-- Version/Product Related Images used by the application/pages -->
+			  <Images>
+				  <Image>
+				  	<Name>Welcome Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_1_Welcome.bmp</File>	  	
+				  </Image>
+				  <Image>
+				  	<Name>Confirmation Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_2_Confirmation.bmp</File>	  	
+				  </Image>
+				  <Image>
+				  	<Name>Installation Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_3_Installation.bmp</File>	  	
+				  </Image>
+				  <Image>
+				  	<Name>Finish Image</Name>
+				  	<Type>ImageList</Type>
+				  	<File>..\dat\Setup\VTS\Images\Configurator_4_Finish.bmp</File>	  	
+				  </Image>		  	  
+			  </Images>
+			  
+			<!-- Display pages and order  -->
+			  <Pages>	
+			         <Page>	
+					  <Name>PageWelcome</Name>
+					  <Assembly>.\HP.PC.PCS.PageControls.dll</Assembly>
+					  <Class>HP.PC.PCS.Configurator.Pages.PageWelcome</Class>
+					  <ImageName>Welcome Image</ImageName>
+					  <DisplayOrder>1</DisplayOrder>
+				  </Page>	 
+				  <Page>
+					  <Name>PageInstaller</Name>
+					  <Assembly>.\HP.PC.PCS.PageControls.dll</Assembly>
+					  <Class>HP.PC.PCS.Configurator.Pages.PageInstaller</Class>
+					  <ImageName>Installation Image</ImageName>
+					  <DisplayOrder>2</DisplayOrder>
+				  </Page>
+			  </Pages>
+		  </Display>
+	  </Displays>
+	
+</Configuration>

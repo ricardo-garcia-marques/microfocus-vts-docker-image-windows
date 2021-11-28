@@ -1,0 +1,95 @@
+/*Configure file is in the format of JSON, make sure your modifications conforms to JSON format*/
+{
+  "dbPath": "C:/VTS/db/data",
+  "defaultDbName": "Default",
+  "adminPort": 4000,
+  "defaultApiPort": 8888,
+  "defaultStart": true,
+  "enableDiag": false,
+  "autoRefreshGrid": true,
+  "maxInstancesAllowed": 50,
+  "normalizeCSV": false, /*Whether to normalize the not strict CSV files (rows don't have the same separators)*/
+  "autoCreateIndexedColumn": true,
+  "admin": {
+    "authentication": "None", /*authentication methods, 3 options "None", "Basic", "NTLM". Default is "None", which means no auth is needed*/
+    "users": [
+      /*Add users with the following format when authentication set to "Basic"*/
+      /*{"user": "johns", "password": "pass", "display": "John Smith"}*/
+    ],
+    /*define admin user group and read only user group for vts user control, 
+	when both administrator and user group are not configured, all users can access to VTS server have full permission.
+	when administrator or user or both configured, users in administrator group have full permission while users in user group have readonly permission */
+    "role": {
+      "administrator": [],
+      "user": []
+    },
+    /*when authentication set to "Basic", requireBasicAuthForAPI set to true, user account needed for accessing from script*/
+    "requireBasicAuthForAPI": false,
+    /*Specify domain/domaincontroller setting when authentication set to "NTLM"*/
+    "domain": "",
+    "domaincontroller": "",
+    "useSSL": false,
+    /*put certificate file in the same folder as node.exe, and configure the key below as something like "certificate.pem" */
+    "certificate": "vts.crt",
+    /*put private key file in the same folder as node.exe, and configure the key below as something like "privatekey.pem" */
+    "privateKey": "vts.key",
+    /*password used to decrypt private key*/
+    "passphrase": "",
+    /*put ca file in the same folder as node.exe, and configure the key below as something like "ca.pem", ca file used to verify client certificate*/
+    "ca": "vts.crt",
+    "tlsVersion": "auto", /* 4 options: "auto", "tls1.0", "tls1.1", "tls1.2". Default is "auto"(SSLv23_method), which is default option for secureProtocol in Node JS). */
+    "ciphers": "ALL",
+    /*If true the server will request a certificate from clients that connect and attempt to verify that certificate when use https*/
+    "requestClientCert": false
+  },
+  //language mapping settings:
+  //"default" means the default language to serve
+  //for the locales on the left side of colon, the corresponding resource file should exist
+  //if you want to match additional locales to the same language, you can put them on the right side of the colon, put them in an array "[]" if more than one
+  "languages": [
+    {
+      "en": "en-us"
+    },
+    {
+      "zh-cn": [
+        "zh",
+        "zh-sg"
+      ]
+    },
+    {
+      "ja": "ja"
+    },
+    {
+      "ko": [
+        "zh",
+        "zh-sg"
+      ]
+    },
+    {
+      "it": "zh-hk"
+    },
+    {
+      "es": "zh-hk"
+    },
+    {
+      "fr": "fr-fr"
+    },
+    {
+      "ru": "ru"
+    },
+    "de"
+  ],
+  "defaultLanguage": "en",
+  "logger": {
+    "level": "error", /* three levels: error, warning, info */
+    "transports": {
+      "file": {
+        "type": "File",
+        "path": "C:/VTS/db/data"
+      },
+      "console": {
+        "type": "Console"
+      }
+    }
+  }
+}

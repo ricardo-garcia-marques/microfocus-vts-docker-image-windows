@@ -1,0 +1,257 @@
+<!--Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" -->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="ValidateFiles">
+	
+	<PropertyGroup>   		
+    		<ProductBinDir>$(MSBuildProjectDirectory)\..\..\..\..\bin</ProductBinDir>
+    		<ProductDir>$(MSBuildProjectDirectory)\..\..\..\..</ProductDir>
+    		<MSBuildDir>$(MSBuildProjectDirectory)</MSBuildDir> 
+    		<UserInputDir>$(MSBuildProjectDirectory)\..\Xml</UserInputDir>
+    		
+    		<!-- the escape character for quotes (") -->
+    		<Quotes>%22</Quotes>
+    		<!-- the escape character for white space -->
+    		<WhiteSpace>%20</WhiteSpace>
+    		
+    		<!-- Import list of custom Tasks -->
+        	<ExternalTaskPath>$(MSBuildDir)\HP.PC.PCS.MSBuild.Extensions.tasks.proj</ExternalTaskPath>
+        	
+        	<!-- Import UserInput File -->
+        	<UserInputFileName>UserInput.xml</UserInputFileName>
+        	<UserInputPropertiesFile>$(UserInputDir)\$(UserInputFileName)</UserInputPropertiesFile>
+        	
+        	<!-- Import files registration information File -->
+        	<RegPropertiesFile>$(MSBuildDir)\HP.PC.PCS.MSBuild.RegFiles.proj</RegPropertiesFile>
+        	
+        	<!-- Import Properties File -->
+        	<PropertiesFile>$(MSBuildDir)\HP.PC.PCS.MSBuild.Properties.proj</PropertiesFile>
+        		
+	</PropertyGroup>
+	
+<!-- #############################################   Import external files   #################################################  -->	
+	<Import 
+	Condition="Exists ('$(ExternalTaskPath)')"
+	Project="$(ExternalTaskPath)" />
+	
+	<Import
+	Condition="Exists ('$(UserInputPropertiesFile)')"
+	Project="$(UserInputPropertiesFile)" />	
+	
+	<Import
+	Condition="Exists ('$(RegPropertiesFile)')"
+	Project="$(RegPropertiesFile)" />
+	
+	<Import
+	Condition="Exists ('$(PropertiesFile)')"
+	Project="$(PropertiesFile)" />
+	
+	
+<!-- ##############################################  Targets   #################################################  -->
+
+<!-- validate existance of external files such as properties, external tasks etc. -->
+	<!-- issue a message and exit in case one of them is missing -->
+	<Target Name="ValidateFiles">
+		<Error
+		Condition="!Exists ('$(PropertiesFile)')" 
+		Text="Properties file not found or not uploaded correctly. Check file's availability under $(PropertiesFile)" />
+		
+		<Error
+		Condition="!Exists ('$(UserInputPropertiesFile)')"
+		Text="Configurator's user input file not found or not uploaded correctly. Check file's availability under $(UserInputPropertiesFile)" />
+		
+		<Error
+		Condition="!Exists ('$(ExternalTaskPath)')"
+		Text="Extensions tasks list file not found. Check file's availability under $(ExternalTaskPath)" />
+		
+		<Error                              
+		Condition="!Exists ('$(RegPropertiesFile)')"
+		Text="Registaration instructions file not found. Check file's availability under $(RegFile)" />
+	</Target>
+	
+	<Target Name="RunBeforeFinish_inMSIInstall">		
+		<CallTarget Targets="RunBeforeFinish" ContinueOnError="true" />
+	</Target>
+
+	<Target Name="RunBeforeFinish_inRepairORPatchUninstallation">
+		<CallTarget Targets="UninstallNodeService" ContinueOnError="true" />	
+		<CallTarget Targets="DeleteAdminUIshortcut" ContinueOnError="true" />
+		<CallTarget Targets="RegistryUpdate" ContinueOnError="true" />
+		<CallTarget Targets="RunBeforeFinish" ContinueOnError="true" />
+	</Target>
+
+	<Target Name="RunBeforeFinish_inPatchInstallation">	
+		<CallTarget Targets="UninstallNodeService" ContinueOnError="true" />	
+		<CallTarget Targets="DeleteAdminUIshortcut" ContinueOnError="true" />		
+		<CallTarget Targets="RunBeforeFinish" ContinueOnError="true" />
+	</Target>
+	
+	<Target Name="RunBeforeFinish_inUpgrade">
+		<CallTarget Targets="UninstallNodeService" ContinueOnError="true" />	
+		<CallTarget Targets="DeleteAdminUIshortcut" ContinueOnError="true" />			
+		<CallTarget Targets="RunBeforeFinish" ContinueOnError="true" />	
+	</Target>
+	
+	<Target Name="RunBeforeFinish">		
+		<CallTarget Targets="UpdateConfigureJson" ContinueOnError="true" />
+		<CallTarget Targets="CreateAdminUIshortcut" ContinueOnError="true" />
+		<CallTarget Targets="CreateDBPathDir" ContinueOnError="true" />
+		<CallTarget Targets="InstallVTSService" ContinueOnError="true" />
+		<CallTarget Targets="AutoLaunch" ContinueOnError="true" />		
+	</Target>
+	
+	<Target Name="RunAfterFinish_inMSIInstall">		
+		<CallTarget Targets="RunAfterFinish" ContinueOnError="true" />
+	</Target>
+
+	<Target Name="RunAfterFinish_inRepair">		
+		<CallTarget Targets="RunAfterFinish" ContinueOnError="true" />
+	</Target>
+	
+	<Target Name="RunAfterFinish_inPatchInstallation">		
+		<CallTarget Targets="RunAfterFinish" ContinueOnError="true" />
+	</Target>
+	
+	<Target Name="RunAfterFinish_inUpgrade">		
+		<CallTarget Targets="RunAfterFinish" ContinueOnError="true" />
+	</Target>
+		
+	<Target Name="RunAfterFinish">
+		<CallTarget Targets="OpenReadme" ContinueOnError="true" />		
+		<CallTarget Targets="OpenAdminUIPage" ContinueOnError="true" />		
+	</Target>
+	
+	<Target Name="RunBeforeModify_inUninstallationORUpgrade">		
+		<CallTarget Targets="RunBeforeModify" ContinueOnError="true" />
+	</Target>
+
+	<Target Name="RunBeforeModify_inPatchInstallation">	
+		<CallTarget Targets="RunBeforeModify" ContinueOnError="true" />
+	</Target>
+
+	<Target Name="RunBeforeModify_inRepairORPatchUninstallation">		
+		<CallTarget Targets="StopServices" ContinueOnError="true" />
+		<CallTarget Targets="RunBeforeModify" ContinueOnError="true" />
+	</Target>
+	
+	<Target Name="RunBeforeModify">		
+		<!-- no actions -->
+        </Target>
+		
+	<Target Name="RunBeforeUninstall_inUninstallationORUpgrade">	
+		<CallTarget Targets="UninstallNodeService" ContinueOnError="true" />	
+		<CallTarget Targets="DeleteAdminUIshortcut" ContinueOnError="true" />
+	</Target>
+    	
+    	<Target Name="StopServices">
+		<Exec     
+        	ContinueOnError="true"
+        	Command='net stop $(Quotes)VTSService$(Quotes)' />
+    	</Target>    	
+    		
+    	<Target Name="UninstallNodeService">	          	
+		<Exec     
+        	ContinueOnError="true"
+        	Command='net stop $(Quotes)VTSService$(Quotes)' />          	
+        	<Exec     
+        	ContinueOnError="true"
+        	Command='$(Quotes)$(windir)\system32\sc.exe$(Quotes) delete $(Quotes)VTSService$(Quotes)' />      	
+    	</Target>
+    	
+   	
+    	
+    	<Target Name="DeleteAdminUIshortcut">	
+    		<Warning
+		Condition="!Exists ('$(ConfigSPS_js)')"
+		Text="install\ConfigSPS.js file not found." />        	
+		<Exec     	
+        	ContinueOnError="true"
+        	Condition="Exists('$(ConfigSPS_js)')"
+        	Command='$(Quotes)$(windir)\system32\cscript$(Quotes) $(Quotes)$(ConfigSPS_js)$(Quotes) deleteShortcut $(AdminUIshortcut)' />       	
+    	</Target>
+
+	<Target Name="UpdateConfigureJson">	        	
+         	<Warning
+		Condition="!Exists ('$(NodeExe)')"
+		Text="web\node.exe file not found.  Skipping execution of node.exe" />
+		<Warning
+		Condition="!Exists ('$(ConfigSPS_js)')"
+		Text="install\ConfigSPS.js file not found." />
+        	<Exec     
+        	ContinueOnError="true" 
+        	Condition="Exists('$(NodeExe)')"
+        	Command='$(Quotes)$(NodeExe)$(Quotes) $(Quotes)$(ConfigSPS_js)$(Quotes) configure $(Quotes)$(ConfigureJson)$(Quotes) $(Server_port) $(Quotes)$(DB_path)$(Quotes)'/>         
+    	</Target>
+
+    	<Target Name="CreateAdminUIshortcut">	        	
+    		<Warning
+		Condition="!Exists ('$(ConfigSPS_js)')"
+		Text="install\ConfigSPS.js file not found." />
+		<Exec     	
+        	ContinueOnError="true"
+        	Condition="Exists('$(ConfigSPS_js)')"
+        	Command='$(Quotes)$(windir)\system32\cscript$(Quotes) $(Quotes)$(ConfigSPS_js)$(Quotes) createShortcut $(Quotes)$(AdminUIshortcut)$(Quotes) $(Quotes)http://localhost:$(Server_port)$(Quotes)' />       	
+    	</Target>
+    	
+    	<Target Name="CreateDBPathDir">	      	
+		<Exec     	
+        	ContinueOnError="true"
+        	Condition="!Exists('$(DB_path)')"
+        	Command='md $(Quotes)$(DB_path)$(Quotes)' />       	
+    	</Target>
+    	
+
+    	
+    	<Target Name="InstallVTSService">	        	
+        	<Exec     
+        	ContinueOnError="true" 
+        	Command='sc create $(Quotes)VTSService$(Quotes) binPath= $(Quotes)$(SrvanyExe)$(Quotes) DisplayName= "VTS Service"'/>
+			<Exec     
+        	ContinueOnError="true" 
+        	Command='sc.exe description $(Quotes)VTSService$(Quotes) $(Quotes)Virtual Table Server for LoadRunner$(Quotes)'/> 			
+    	</Target>
+    	
+    	<Target Name="AutoLaunch">	
+		<Exec     
+        	ContinueOnError="true" 
+        	Condition="'$(autolaunch)' == 0"
+        	Command='sc config $(Quotes)VTSService$(Quotes) start= demand'/>   
+		<Exec     
+        	ContinueOnError="true" 
+        	Condition="'$(autolaunch)' == 1"
+        	Command='sc config $(Quotes)VTSService$(Quotes) start= auto'/>  
+		<Exec     
+        	ContinueOnError="true" 
+        	Condition="'$(autolaunch)' == 1"
+        	Command='net start $(Quotes)VTSService$(Quotes)'/>                	 	
+    	</Target>
+    	
+    	<Target Name="OpenReadme">
+        	<Exec
+        	ContinueOnError="true"
+        	Condition="Exists ('$(ProductDir)\dat\Readme.htm')"
+        	Command="cmd.exe /c start iexplore $(Quotes)$(ProductDir)\dat\Readme.htm$(Quotes)" />
+    	</Target>
+    	
+    	<Target Name="OpenAdminUIPage">
+        	<Exec
+        	ContinueOnError="true"
+        	Condition="'$(autolaunch)' == 1"
+        	Command="cmd.exe /c start iexplore $(Quotes)http://localhost:$(Server_port)$(Quotes)" />
+    	</Target>
+    	
+    	<Target Name="RegistryUpdate">
+    		<Exec
+    			ContinueOnError="true"
+    			Command='REG ADD $(Quotes)$(RegEntryParameters)$(Quotes) /f'/>
+    		<Exec
+    			ContinueOnError="true"
+    			Command='REG ADD $(Quotes)$(RegEntryParameters)$(Quotes) /v Application /t REG_SZ /d $(Quotes)$(NodeExe)$(Quotes) /f'/>
+    		<Exec
+    			ContinueOnError="true"
+    			Command='REG ADD $(Quotes)$(RegEntryParameters)$(Quotes) /v AppParameters /t REG_SZ /d "\"$(ProductDir)\web\main.js\"" /f'/>
+    		<Exec
+    			ContinueOnError="true"
+    			Command='REG ADD $(Quotes)$(RegEntryParameters)$(Quotes) /v AppDirectory /t REG_SZ /d $(Quotes)$(ProductDir)\web$(Quotes) /f' />   			
+    			
+  	</Target>
+
+</Project>

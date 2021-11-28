@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title id="pagetitle">{{VTS_Admin_UI}}
+    </title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <link type="text/css" href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="data/resource?ln={{ln}}" type="text/javascript"></script>
+    
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">$.browser = {}; $.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());</script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="js/i18n/grid.locale-en.js" type="text/javascript"></script>
+    
+    <script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
+    
+
+    <script src="admin.js" type="text/javascript"></script>
+
+    <!--[if IE]><style>
+   #toolbar label
+    {
+        vertical-align:bottom
+    }</style>
+    <![endif]-->
+   <!--[if IE 8]> 
+    <style>
+    .back {display:none}
+    .searchbox .front {background:white}
+    </style> 
+    <![endif]--> 
+
+</head>
+<body>
+<div class="banner">
+    <div class="menu" >
+        <div style="">
+            <span id="lblUser" style="display:none">{{User}}: <span id="username" ></span> <span id="lblLogout">| <a id="logout" href="javascript:void(0)">{{Logout}}</a></span> |</span>
+            <span id="lblOptions"><a id="options" href="javascript:void(0)">{{Options}}</a> |</span>
+            <span id="lblHelp"><a id="helpcenter" href="javascript:void(0)">{{Help}}</a></span>
+        </div>
+    </div>
+<span class="logo"></span>
+<h1>{{Virtual Table Server}} <span id="instancename"></span></h1>
+
+</div>
+
+<div>
+<div class="subbar">
+<div>
+<span class="enable-script"><label>{{Access from Script}}:</label>
+    <button type="button" id="mnuStart" class="ui-state-default ui-corner-all" title="{{Enable_API_for_All}}">
+    <span class="ui-button-icon-primary ui-icon ui-icon-warning"></span>
+        {{Disabled}}
+        <span class="ui-icon ui-icon-triangle-1-s"></span>
+    </button>
+    <button type="button" id="mnuStop" class="ui-state-default ui-corner-all" title="{{Enable_API_for_All}}" style="display: none">
+    <span class="ui-button-icon-primary ui-icon ui-icon-ok"></span>
+        {{Enabled}}
+        <span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span>
+    </button>
+        <ul id="mnuOption" class="pop-menu">
+        <li><a id="miLanguage" href="javascript:void(0)" >{{language}}: {{currentLanguage}}</a>
+            <ul id="mnuLanguage" class="pop-menu">
+                {{#languages}}<li><a href="#"><span class="ui-icon-dummy"></span><span class="value">{{ln}}</span>{{name}}</a></li>{{/languages}}
+            </ul>
+        </li>
+        <li><a id="miSample" href="#">{{Import Samples}}</a>
+            <ul id="mnuSamples" class="pop-menu">
+            </ul>
+        </li>
+        <li><a id="miInstMgr" href="#">{{Other Instances}}</a>
+            <ul id="miInstances" class="pop-menu">
+            <li><a href="#" id="btnAddInst"><span class="ui-icon-dummy"></span><span class="value"></span>{{Start Instance}}...</a></li>
+            <li><a href="#" id="btnRemoveInst"><span class="ui-icon-dummy"></span><span class="value"></span>{{Stop Instances}}...</a></li>
+            <li>-</li>
+            </ul>
+        </li>
+        <li><a id="miInstDefault" href="#" target="_blank">{{Main Instance}}</a></li>
+        </ul>
+    <ul id="mnuHelp" class="pop-menu">
+            <li><a id="miOpenHelp" href="javascript:void(0)" >{{VTS Help Center}}</a></li>
+            <li><a id="miHelpOptions" href="#">{{Help Center Options}}</a>
+            <ul id="mnuOptions" class="pop-menu">
+                <li><input type="checkbox" id="helponline" checked/> {{Open Online}}</li>
+                <li><input type="checkbox" id="helpoffline" /> {{Open Locally}}</li>
+            </ul>
+            </li>
+        </ul>
+    <ul id="mnuEnableAPI" class="pop-menu">
+        <li><a href="#" id="btnStartDlg"><span class="ui-icon-dummy"></span>{{Enable}}</a></li>
+        <li><a href="#" id="btnStop"><span class="ui-icon-dummy"></span>{{Disable}}</a></li>
+    </ul>
+    </span>
+    <label for="txtserver">{{Server Name}}: </label><span id="txtserver" style="min-width: 100px; display: inline-block"></span>
+    <label for="txtPort">{{Port}}:</label>
+    <input type="text" id="txtPort" style="width: 67px" value="" disabled="disabled" />
+    
+    </div>
+</div>
+<span id="toolbar" class="toolbar flat" style="padding:5px 0">
+    <span style="float: right;margin:0 20px">
+        <button id="dummy" style="width:0;height:0;background:transparent;border:0;padding:0"></button>
+        <span class="searchbox">
+        <input type="text" id="txtSearch" class="front"/><input type="text" id="hint" class="back" value="{{search in table}}"/></span>
+        
+        <button id="tbtnSearch">{{Find}}</button></span>
+    
+        <button id="tbtnImport" style="margin-left:10px">{{Import}}</button>
+    <button id="tbtnExport">{{Export}}</button>
+    <div class="separator"></div>
+    <span style="display: inline-block; width: 0;">
+        <ul id="mnuColumn" class="pop-menu">
+            <li><a href="#" id="mnuInsertValue"><span class="ui-icon-dummy"></span>{{Insert Value at Start}}</a></li>
+            <li><a href="#" id="mnuAddEnd"><span class="ui-icon-dummy"></span>{{Append Value to End}}</a></li>
+            <li><a href="#" id="tmnuClearColumn"><span class="ui-icon-dummy"></span>{{Clear Column's Content}}</a></li>
+            <li><a href="#" id="mnuDeleteAll"><span class="ui-icon-dummy" style="float:left"></span>{{Delete Column}}</a></li>
+            <li><a href="#" id="mnuAddColumnLeft"><span class="ui-icon-dummy"></span>{{Insert Column to the Left}}</a></li>
+            <li><a href="#" id="mnuAddColumnRight"><span class="ui-icon-dummy"></span>{{Insert Column to the Right}}</a></li>
+            <li><a href="#" id="mnuChangeColumn"><span class="ui-icon-dummy"></span>{{Change Column Name}}</a></li>
+            <li><a href="#" id="mnuCheckUnique">
+                <span class="ui-icon-dummy" id="imgCheckUnique"></span>{{Highlight Duplicated Entry}}</a></li>
+            <li><a href="#" id="mnuMoreInfo"><span class="ui-icon-dummy"></span>{{More info}}</a></li>
+        </ul></span>
+        <button id="tbtnActions" class="ui-state-default ui-corner-all" >
+            {{Column Actions}}<span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span></button>
+    <div class="separator"></div>
+    <button id="tbtnDeleteTable" class="ui-state-default ui-corner-all">
+    {{Delete Table}}</button>
+    <div class="separator"></div>
+    <button id="tbtnRefresh">
+        {{Refresh}}
+        <div style="position:absolute;"><div id="notiNumber" class="badge" title="{{Data_Changed}}">disconnected</div></div>
+    </button>
+    
+    </span>
+    <div style="width:100%">
+
+        <div id="data" style="position: relative">
+        <div>
+    
+        <div id="container">
+            <table id="list">
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+            <div id="pager">
+            </div>
+
+<div class="contextMenu" id="cellMenu" style="display:none">
+    <ul>
+        <li id="add">
+            <span class="ui-icon ui-icon-plus" style="float:left"></span>
+            <span>{{Add Value}}</span>
+        </li>
+        <li id="edit">
+            <span class="ui-icon ui-icon-pencil" style="float:left"></span>
+            <span>{{Edit Value}}</span>
+        </li>
+        <li id="del">
+            <span class="ui-icon ui-icon-trash" style="float:left"></span>
+            <span>{{Delete Value}}</span>
+        </li>
+        <li id="mnuIsUnique">
+            <span class="ui-icon-dummy" style="float:left"></span>
+            <span>{{Check Uniqueness}}</span>
+        </li>
+    </ul>
+</div>
+
+
+<div class="contextMenu" id="headMenu" style="display:none;white-space:nowrap">
+    <ul >
+       <li id="mnuInsertValue">
+            <span class="ui-icon-dummy"></span>
+            <span>{{Insert Value at Start}}</span>
+        </li>
+        <li id="mnuAppendValue">
+            <span class="ui-icon-dummy"></span>
+            <span>{{Append Value to End}}</span>
+        </li>
+        <li id="mnuClearColumn">
+            <span class="ui-icon-dummy"></span>
+            <span>{{Clear Column's Content}}</span>
+        </li>
+        <li id="mnuDeleteColumn">
+            <span class="ui-icon-dummy"></span>
+            <span>{{Delete Column}}</span>
+        </li>
+        <li id="mnuAddColumnLeft">
+            <span class="ui-icon-dummy"></span>
+            <span>{{Insert Column to the Left}}</span>
+        </li>
+        <li id="mnuAddColumnRight">
+            <span class="ui-icon-dummy"></span>
+            <span>{{Insert Column to the Right}}</span>
+        </li>
+        <li id="mnuChangeColumn">
+            <span class="ui-icon-dummy"></span>
+            <span>{{Change Column Name}}</span>
+        </li>
+        <li id="mnuCheckUnique">
+            <span class="ui-icon-dummy" id="imgCheckUnique1"></span>
+            <span>{{Highlight Duplicated Entry}}</span>
+        </li>
+        <li id="mnuMoreInfo">
+            <span class="ui-icon-dummy"></span>
+            <span>{{More info}}</span>
+        </li>
+    </ul>
+</div>
+
+</div>
+</div>
+</div>
+    </div>
+    <noscript>{{No_Script}}</noscript>
+    <!-- ui-dialog -->
+    <div id="confirm" title="">
+        <p></p>
+    </div>
+
+    <div id="alert" title="">
+        <p></p>
+    </div>
+
+<div id="dlgStartServer" title="{{Enable Script Access}}" class="dlg hide">
+    <div style="margin-right:25px;min-width:280px;max-width:400px">
+        {{Do_You_Enable}}
+    </div>
+    <div class="line option">
+        <label for="txtDlgServer">{{Server}}:</label><span id="txtDlgServer" style="width:12em"></span>
+        <label for="txtDlgPort" style="margin-left:20px">{{Port}}:</label><input type="text" style="width:3em" maxlength="5" id="txtDlgPort" />
+    </div>
+    <div class="autherror"></div>
+</div>
+<div id="dlgColAdd" title="{{Create Column}}" class="dlg hide">
+    <div><label for="txtColName">{{New column name}}:</label></div>
+    <div><input type="text" id="txtColName" maxlength="1000" style="width:280px" /></div>
+    <div class="autherror"></div>
+</div>
+<div id="dlgColEdit" title="{{Change Column Name}}" class="dlg hide">
+    <div><label for="txtColName">{{New name of column}}:</label></div>
+    <div><input type="text" id="txtColName" maxlength="1000" style="width:280px" /></div>
+    <div class="autherror"></div>
+</div>
+<div id="dlgColInfo" title="{{Column Information}}" class="dlg hide">
+    <div><label for="lblColName">{{Column Name}}:</label><span id="lblColName"></span></div>
+    <div><input type="checkbox" id="chkIndex" /><label for="chkIndex">{{Indexed}}</label></div>
+    <div class="autherror"></div>
+</div>
+<div id="dlgInstMgrAdd" title="{{Start Instance}}" class="hide">
+<div id="secAddInst">
+    <div class="line option" style="margin:1em 0">
+        <label>
+            {{Start New Instance}}:</label>
+    </div>
+    <div class="line option">
+        <label for="txtInstName" style="min-width: 110px; display: inline-block">
+            {{Instance Name}}:</label><span style="width: 12em"><input type="text" style="width: 240px"
+                maxlength="40" id="txtInstName" /></span>
+    </div>
+    <div class="line option">
+        <label for="txtInstPort" style="min-width: 110px; display: inline-block">
+            {{Port}}:</label><input type="text" style="width: 3em" maxlength="5" id="txtInstPort" />
+    </div>
+    
+    <div class="line option;" style="height:30px">
+        <div style="margin:40px 0"><input type="checkbox" id="openurl" checked="checked" />{{Open the instance UI}}</div>
+    </div>
+    <div class="line option;" style="height:50px">
+        <button style="position: absolute; right: 30px" id="btnStartInst">{{Start Instance}}</button>
+    </div>
+    <div class="msg errormsg" style="height:2.1em; margin-top:20px"></div>
+</div>
+
+    </div>
+ </div>
+ <div id="dlgInstMgrRemove" title="{{Stop Instances}}" class="hide">
+<div id="secListInst">
+    <div class="line option">
+        <label>{{Running Instances}}</label></div>
+    <div>
+    <table class="checklist" style="margin-right: 50px">
+        <thead>
+            <tr>
+                <td>
+                    <div class="listheader">
+                        <ol id="selectable">
+                            <li class="">
+                                <div class="mybox ui-icon-check">
+                                </div>
+                                {{Select All}}</li>
+                        </ol>
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="listbody">
+                        <ol>
+                        </ol>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <div style="position: relative">
+            <button style="position: absolute; right: -5px; margin-top: 30px" id="btnStopInst">
+                {{Stop Instances}}
+            </button>
+            <div style="margin: 10px 0" class="msg">
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+</div>
+
+<div id="dlgExport" title="{{Export}}" class="dlg hide">
+    <div class="option">
+        <input type="radio" id="rdoExpCsv" name="exporttype" checked="checked" /><label for="rdoExpCsv">{{Export_to_Csv}}</label>
+    </div>
+    <div class="option">
+        <input type="radio" id="rdoExpDb" name="exporttype" disabled /><label for="rdoExpDb" style="color:gray">{{Export_to_Database}}</label>
+    </div>
+    <div class="optionblock">
+	    <label>{{Export_To_DB_Note}}</label>
+	    <a id="miOpenHelp1" href="javascript:void(0)" style="color:blue">{{More info}} </a>
+        
+    </div>
+<!--	
+        <div class="optionblock" id="optExpDb">
+                    <label for="txtExportConn">{{Connection String}}:</label>
+                    <input type="text" id="txtExportConn" class="conn preserve" value="Provider=<OLEDB Provider>;Data Source=<Server>;Initial Catalog=<Your Database>;Integrated Security=SSPI;" />
+                    <button type="button" id="btnExpTestConn">{{Test Connection}}</button>
+                    <div><label for="txtExpTable">{{Table}}:</label><input type="text" id="txtExpTable" value="" maxlength="1000" style="width:280px"/>
+                    <input type="checkbox" id="chkDropTable"/> <label for="chkDropTable" title="{{Drop_Table_Option}}">{{Drop_Reconstruct}}</label></div>
+                    <div class="autherror"></div>
+        </div>
+-->
+</div>
+
+<div id="dlgImport" title="{{Import}}" class="dlg hide">
+    <div class="option">
+        <input type="radio" id="rdoImpDb" name="importtype" value="ado" disabled /><label for="rdoImpDb" style="color:gray">{{Import_From_Database}}</label>
+	</div>
+       <div class="optionblock" id="optImpDb">
+		    <label >{{Import_From_DB_Note}}</label> 
+		    <a id="miOpenHelp2" href="javascript:void(0)" style="color:blue">{{More info}}</a>
+       </div>
+	<!--
+	<div class="optionblock" id="optImpDb">
+    <label for="txtImportConn">{{Connection String}}:</label>
+        <input type="text" id="txtImportConn" class="conn preserve" value="Provider=<OLEDB Provider>;Data Source=<Server>;Initial Catalog=<Your Database>;Integrated Security=SSPI;" />
+        <span style="width: 20px"></span>
+        <button type="button" id="btnImpTestConn">{{Test Connection}}</button>
+        <div>
+            <label for="txtSql">{{SQL_Statement}}:</label></div>
+        <div>
+            <textarea id="txtSql" class="preserve" title="{{SQL_Query}}" style="height: 101px;
+                width: 657px"></textarea>
+        </div>
+	!-->
+
+    <div class="option">
+        <input type="radio" id="rdoImpCsv" name="importtype" value="csv" checked="checked" /><label for="rdoImpCsv">{{Import_from_Csv}}</label>
+        <span id="optImpCsv"><span style="margin-left: 30px; margin-right: 5px" >{{Delimiter}}: </span>
+        <select id="drpSeparator">
+            <option value='auto'>&lt;{{Auto Detect}}&gt;</option>
+            <option value=','>{{Commas}}(,)</option>
+            <option value=':'>{{Colons}}(:)</option>
+            <option value=';'>{{Semi-Colons}}(;)</option>
+            <option value=' '>{{Spaces}}( )</option>
+            <option value='\t'>{{Tabs}}(\t)</option>
+        </select></span>
+    </div>
+        <div class="optionblock" id="optImpCsv2">
+            <label for="fileToUpload">{{CSV file}}:</label>
+            <input id="fileToUpload" type="file" name="fileToUpload" style="width: 511px" />
+        </div>
+</div>
+</body>
+</html>
