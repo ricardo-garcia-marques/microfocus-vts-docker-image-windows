@@ -22,13 +22,14 @@ To run VTS with default configuration, use the following command
 You can acces VTS in https://localhost:4000. Ports from 4001 to 4050 will be used to create new instances.
 
 
-    docker run -p 8888:8888 -p 4000-4050:4000-4050 --name=VTS -d -t "give.example.org/of/your/container:v0.2.1 parameters" ricardogarciamarques/microfocus_vts_pruebas
+    docker run -p 8888:8888 -p 4000-4050:4000-4050 --name=VTS -d -t docker pull ricardogarciamarques/microfocus_vts:2020.0.0
 
 Run VTS in http mode and increase the maximun number of instances to 100. Range port exposed must be increase to access new instances
 
 
-    docker run -p 8888:8888 -p 4000-4050:4000-4050 --name=VTS -d -t give.example.org/of/your/container:v0.2.1 parameters ricardogarciamarques/microfocus_vts_pruebas
+    docker run -p 8888:8888 -p 4000-4050:4000-4050 --name=VTS -d -t docker pull ricardogarciamarques/microfocus_vts:2020.0.0
 
+**Note: This repo does not publish or maintain a latest tag. Please declare a specific tag when pulling or referencing images from this repo.**
 
 
 ### Environment Variables
