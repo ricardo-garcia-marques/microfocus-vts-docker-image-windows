@@ -7,8 +7,8 @@ function updateConfig(path, adminPort, dbPath){
   var config = fs.readFileSync(path, 'utf8');
   adminPort = parseInt(adminPort);
   if(!isNaN(adminPort)) {
-    config = config.replace(/\/\/ADMINPORT\+\+[\w\W]*\/\/ADMINPORT\-\-/m, '"adminPort": ' + adminPort + ',');
-    config = config.replace(/\/\/DBPATH\+\+[\w\W]*\/\/DBPATH\-\-/m, '"dbPath": "' + dbPath.replace(/\\/g,'/') + '",');
+    config = config.replace(/"adminPort": \d+,/, '"adminPort": ' + adminPort + ',');
+    config = config.replace(/"dbPath": .+,/, '"dbPath": "' + dbPath.replace(/\\/g,'/') + '",');
   }
   fs.writeFileSync(path, config);
 }

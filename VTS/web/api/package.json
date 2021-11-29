@@ -1,9 +1,0 @@
-{
-    "name": "sps"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "connect": "2.1.0",
-      "mongodb": ">=0.9.6"
-  }
-}
