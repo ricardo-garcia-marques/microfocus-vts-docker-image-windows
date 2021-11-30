@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog].
 
-
+## [2020.1.0] - 2021-11-30
+### Changed
+- VTS code upadted to version 2020.1.0
+- README-Dockerhub.md updated how to run build images with new vts version 
+- README.md updated how to run build images with new vts version 
 ## [2020.0.0] - 2021-10-29
 - initial release
 
