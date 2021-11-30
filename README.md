@@ -29,13 +29,12 @@ Clone repository
 
 Run  local image with default options
 
-    docker run -p 8888:8888 -p 4000-4050:4000-4050 --name=Microfocus_VTS -d -t microfocus_vts:local
+    docker run -d -t -p 8888:8888 -p 4000:4000 --name=Microfocus_VTS microfocus_vts:local
 
 To see other options and how to run, see [docker hub readme](https://hub.docker.com/r/ricardogarciamarques/microfocus_vts)
 
 
 ## Publish image
-
 
 ### Manual publish image from comand line
 
@@ -47,10 +46,10 @@ To see other options and how to run, see [docker hub readme](https://hub.docker.
 
 When new tag is pushed to github, there is a github action which build and publish a new image in docker hub automatically
 
-For example, create tag and push to github for version 2020.0.0 
+For example, create tag and push to github for version 2020.1.0 
 
-    git tag 2020.0.2 -m "Tag 2020.0.2" 
+    git tag 2020.0.2 -m "Tag 2020.1.0" 
 
-    git push origin 2020.0.0
+    git push origin 2020.1.0
 
-As result, a new image tagged "2020.0.2" is builded and published to docker hub
+As result, a new image tagged "2020.1.0" is builded and published to docker hub
