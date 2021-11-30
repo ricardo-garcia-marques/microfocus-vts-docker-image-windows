@@ -1,0 +1,54 @@
+MSBUILD : warning MSB4056: Se debe llamar al motor de MSBuild en Singlethread-Apartment. El modelo de subprocesos actual es '"MTA". El proceso continúa, pero es posible que algunas tareas no funcionen correctamente.
+Compilación iniciada a las 29/11/2021 20:54:49.
+__________________________________________________
+Proyecto "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj" (RunBeforeFinish_inMSIInstall destino(s)):
+
+[29/11/2021 20:54:49]: Target ValidateFiles Finished
+Destino RunBeforeFinish_inMSIInstall:
+    Destino RunBeforeFinish:
+        Destino UpdateConfigureJson:
+            "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\web\node.exe" "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\install\ConfigSPS.js" configure "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\web\configure.json" 4000 "C:\Micro Focus\VTSdata\data"
+[29/11/2021 20:54:54]: Target UpdateConfigureJson Finished
+        Destino CreateAdminUIshortcut:
+            "C:\WINDOWS\system32\cscript" "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\install\ConfigSPS.js" createShortcut "Virtual Table Server.url" "http://localhost:4000"
+            Microsoft (R) Windows Script Host versión 5.812
+            Copyright (C) Microsoft Corporation. Reservados todos los derechos.
+            
+[29/11/2021 20:54:56]: Target CreateAdminUIshortcut Finished
+        Destino CreateDBPathDir:
+            md "C:\Micro Focus\VTSdata\data"
+[29/11/2021 20:54:56]: Target CreateDBPathDir Finished
+        Destino InstallVTSService:
+            sc create "VTSService" binPath= "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\install\srvany.exe" DisplayName= "VTS Service"
+            EXEC : [SC] CreateService warning 1073: 
+            El error anterior se ha convertido en una advertencia porque se ha llamado a la tarea con ContinueOnError=true.
+            
+            El servicio especificado ya existe.
+            
+            C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj(204,10): warning MSB3073: El comando "sc create "VTSService" binPath= "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\install\srvany.exe" DisplayName= "VTS Service"" salió con el código 1073.
+            El error anterior se ha convertido en una advertencia porque se ha llamado a la tarea con ContinueOnError=true.
+            La compilación continúa porque "ContinueOnError" en la tarea "Exec" está establecido como "true".
+            sc.exe description "VTSService" "Virtual Table Server for LoadRunner"
+            [SC] ChangeServiceConfig2 CORRECTO
+[29/11/2021 20:54:57]: Target InstallVTSService Finished
+        Compilación terminada del destino "InstallVTSService" en el proyecto "HP.PC.PCS.MSBuild.proj".
+        Destino AutoLaunch:
+            sc config "VTSService" start= demand
+            [SC] ChangeServiceConfig CORRECTO
+[29/11/2021 20:54:57]: Target AutoLaunch Finished
+[29/11/2021 20:54:57]: Target RunBeforeFinish Finished
+    Compilación terminada del destino "RunBeforeFinish" en el proyecto "HP.PC.PCS.MSBuild.proj".
+[29/11/2021 20:54:57]: Target RunBeforeFinish_inMSIInstall Finished
+Compilación terminada del destino "RunBeforeFinish_inMSIInstall" en el proyecto "HP.PC.PCS.MSBuild.proj".
+
+Compilación del proyecto "HP.PC.PCS.MSBuild.proj" terminada.
+
+Compilación correcta.
+
+MSBUILD : warning MSB4056: Se debe llamar al motor de MSBuild en Singlethread-Apartment. El modelo de subprocesos actual es '"MTA". El proceso continúa, pero es posible que algunas tareas no funcionen correctamente.
+EXEC : [SC] CreateService warning 1073: 
+C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\HP.PC.PCS.MSBuild.proj(204,10): warning MSB3073: El comando "sc create "VTSService" binPath= "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\install\srvany.exe" DisplayName= "VTS Service"" salió con el código 1073.
+    3 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:07.91
