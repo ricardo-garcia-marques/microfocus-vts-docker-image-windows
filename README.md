@@ -48,7 +48,7 @@ When new tag is pushed to github, there is a github action which build and publi
 
 For example, create tag and push to github for version 2020.1.0 
 
-    git tag 2020.0.2 -m "Tag 2020.1.0" 
+    git tag 2020.1.0 -m "Tag 2020.1.0" 
 
     git push origin 2020.1.0
 
