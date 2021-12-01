@@ -1,4 +1,4 @@
-﻿{
+{
 	 "errorOccurred": "Se ha producido un error",
 	 "invalidColumnName": "El nombre de la columna no es válido",
 	 "newColumnName": "Nueva columna 1",
@@ -75,7 +75,7 @@
 	"exportDbApiNote": "\"export_database\" está deshabilitado por un riesgo de seguridad. En su lugar, ejecute \"vts_export\" desde el servidor.",
 	"connectDbApiNote": "\"test_connection\" está deshabilitado por un riesgo de seguridad. En su lugar, ejecute \"node db_io.js -connect <cadena_conexión>\" desde el servidor.",
 	"userPermissionNeeded": "Para modificar esta tabla de datos, debe tener permisos de administrador.",
-	"notFoundLocalHelp": "For local help, you need to download and install the Help Center for your product version. Copy download link to clipboard?"
+	"notFoundLocalHelp": "Para obtener ayuda local, debe descargar e instalar el Centro de ayuda para su versión del producto. ¿Copiar el enlace de descarga en el portapapeles?"
 	},
 	 "page" : {
 		"ln": "es",
@@ -178,10 +178,10 @@
 		"Stop Instances": "Detener instancias",
 		"Select All":"Seleccionar todo",
 		"Open the instance UI": "Abrir la IU de la instancia",
-		"VTS Help Center": "VTS Help Center",
-		"Help Center Options": "Help Center Options",
-		"Open Online": "Open Online",
-		"Open Locally": "Open Locally"
+		"VTS Help Center": "Centro de ayuda de VTS",
+		"Help Center Options": "Opciones del Centro de ayuda",
+		"Open Online": "Abrir en línea",
+		"Open Locally": "Abrir localmente"
 	 },
 
 errorMessages: {

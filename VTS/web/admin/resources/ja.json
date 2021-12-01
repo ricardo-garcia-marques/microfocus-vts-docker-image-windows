@@ -1,4 +1,4 @@
-﻿{
+{
 	 "errorOccurred": "エラーが発生しました",
 	 "invalidColumnName": "無効な列名です",
 	 "newColumnName": "新規列 1",
@@ -75,7 +75,7 @@
 	"exportDbApiNote": "\"export_database\" はセキュリティ リスクのために無効にされています。代わりにサーバ側から \"vts_export\" を実行してください。",
 	"connectDbApiNote": "\"test_connection\" はセキュリティ リスクのために無効にされています。代わりにサーバ側から \"node db_io.js -connect <connection_string>\" を実行してください。",
 	"userPermissionNeeded": "このデータ テーブルを変更するには、管理者権限が必要です。",
-	"notFoundLocalHelp": "For local help, you need to download and install the Help Center for your product version. Copy download link to clipboard?"
+	"notFoundLocalHelp": "ローカルヘルプを使用するには、製品バージョンに対応したヘルプセンターをダウンロードしてインストールする必要があります。ダウンロードリンクをクリップボードにコピーしますか?"
 	},
 	 "page" : {
 		"ln": "ja",
@@ -178,10 +178,10 @@
 		"Stop Instances": "インスタンスの停止",
 		"Select All":"すべて選択",
 		"Open the instance UI": "インスタンス UI を開く",
-		"VTS Help Center": "VTS Help Center",
-		"Help Center Options": "Help Center Options",
-		"Open Online": "Open Online",
-		"Open Locally": "Open Locally"
+		"VTS Help Center": "VTSヘルプセンター",
+		"Help Center Options": "ヘルプセンターオプション",
+		"Open Online": "オンラインで開く",
+		"Open Locally": "ローカルで開く"
 	 },
 
 errorMessages: {

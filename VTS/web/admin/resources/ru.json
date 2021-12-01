@@ -1,4 +1,4 @@
-﻿{
+{
 	 "errorOccurred": "Произошла ошибка",
 	 "invalidColumnName": "Недопустимое имя столбца",
 	 "newColumnName": "Новый столбец 1",
@@ -75,7 +75,7 @@
 	"exportDbApiNote": "Команда \"export_database\" отключена из-за угрозы безопасности. Вместо этого выполните команду \"vts_export\" на стороне сервера.",
 	"connectDbApiNote": "Команда \"test_connection\" отключена из-за угрозы безопасности. Вместо этого выполните команду \"node db_io.js -connect <connection_string>\" на стороне сервера.",
 	"userPermissionNeeded": "Чтобы изменить эту таблицу данных, необходимы права администратора.",
-	"notFoundLocalHelp": "For local help, you need to download and install the Help Center for your product version. Copy download link to clipboard?"
+	"notFoundLocalHelp": "Для получения локальной справки необходимо загрузить и установить центр справки для версии продукта. Скопировать ссылку загрузки в буфер обмена?"
 	},
 	 "page" : {
 		"ln": "ru",
@@ -178,10 +178,10 @@
 		"Stop Instances": "Остановить экземпляры",
 		"Select All":"Выбрать все",
 		"Open the instance UI": "Открыть интерфейс экземпляра",
-		"VTS Help Center": "VTS Help Center",
-		"Help Center Options": "Help Center Options",
-		"Open Online": "Open Online",
-		"Open Locally": "Open Locally"
+		"VTS Help Center": "Справочный центр VTS",
+		"Help Center Options": "Настройки справочного центра",
+		"Open Online": "Открыть онлайн",
+		"Open Locally": "Открыть локально"
 	 },
 
 errorMessages: {
