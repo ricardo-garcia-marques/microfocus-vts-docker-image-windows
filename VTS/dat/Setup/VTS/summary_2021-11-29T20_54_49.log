@@ -1,5 +1,0 @@
-[29/11/2021 20:54:49]: [WARNING]: Se debe llamar al motor de MSBuild en Singlethread-Apartment. El modelo de subprocesos actual es '"MTA". El proceso continúa, pero es posible que algunas tareas no funcionen correctamente.
-[29/11/2021 20:54:49]: Compilación iniciada.
-[29/11/2021 20:54:57]: [WARNING]: 
-[29/11/2021 20:54:57]: [WARNING]: El comando "sc create "VTSService" binPath= "C:\Micro Focus\VTS2020.1.0\dat\Setup\VTS\MSBuild\..\..\..\..\install\srvany.exe" DisplayName= "VTS Service"" salió con el código 1073.
-[29/11/2021 20:54:57]: Compilación correcta. : 3 Warning(s) , 0 Error(s).

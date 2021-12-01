@@ -1,4 +1,4 @@
-﻿{
+{
 	 "errorOccurred": "Une erreur est survenue",
 	 "invalidColumnName": "Nom de colonne non valide",
 	 "newColumnName": "Nouvelle colonne 1",
@@ -75,7 +75,7 @@
 	"exportDbApiNote": "\"export_database\" est désactivé en raison d´un risque de sécurité. Au lieu de cela, exécutez \"vts_export\" du côté serveur.",
 	"connectDbApiNote": "\"test_connection\" est désactivé en raison d´un risque de sécurité. Au lieu de cela, exécutez \"node db_io.js -connect <connection_string>\" du côté serveur.",
 	"userPermissionNeeded": "Pour modifier cette table de données, vous devez disposer des autorisations d’administrateur.",
-	"notFoundLocalHelp": "For local help, you need to download and install the Help Center for your product version. Copy download link to clipboard?"
+	"notFoundLocalHelp": "Pour obtenir de l’aide en local, vous devez télécharger et installer le centre d’aide de votre version de produit. Voulez-vous copier le lien de téléchargement dans le presse-papiers ?"
 	},
 	 "page" : {
 		"ln": "fr",
@@ -178,10 +178,10 @@
 		"Stop Instances": "Arrêter des instances",
 		"Select All":"Sélectionner tout",
 		"Open the instance UI": "Ouvrir l´interface utilisateur de l´instance",
-		"VTS Help Center": "VTS Help Center",
-		"Help Center Options": "Help Center Options",
-		"Open Online": "Open Online",
-		"Open Locally": "Open Locally"
+		"VTS Help Center": "Centre d’aide VTS",
+		"Help Center Options": "Options du centre d’aide",
+		"Open Online": "Ouvrir en ligne",
+		"Open Locally": "Ouvrir localement"
 	 },
 
 errorMessages: {
