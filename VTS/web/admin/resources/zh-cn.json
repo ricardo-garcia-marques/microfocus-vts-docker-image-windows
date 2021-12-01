@@ -1,4 +1,4 @@
-﻿{
+{
 	 "errorOccurred": "已发生错误",
 	 "invalidColumnName": "列名无效",
 	 "newColumnName": "新建列 1",
@@ -75,7 +75,7 @@
 	"exportDbApiNote": "\"export_database\" 由于安全风险已被禁用。请改为从服务器端运行 \"vts_export\"。",
 	"connectDbApiNote": "\"test_connection\" 由于安全风险已被禁用。请改为从服务器端运行 \"node db_io.js -connect <connection_string>\"。",
 	"userPermissionNeeded": "要修改此数据表，必须具有管理员权限。",
-	"notFoundLocalHelp": "For local help, you need to download and install the Help Center for your product version. Copy download link to clipboard?"
+	"notFoundLocalHelp": "要获取本地帮助，您需要下载并安装适用于您所用产品版本的帮助中心。是否将下载链接复制到剪贴板?"
 	},
 	 "page" : {
 		"ln": "zh-cn",
@@ -178,10 +178,10 @@
 		"Stop Instances": "停止实例",
 		"Select All":"全选",
 		"Open the instance UI": "打开实例 UI",
-		"VTS Help Center": "VTS Help Center",
-		"Help Center Options": "Help Center Options",
-		"Open Online": "Open Online",
-		"Open Locally": "Open Locally"
+		"VTS Help Center": "VTS 帮助中心",
+		"Help Center Options": "帮助中心选项",
+		"Open Online": "联机打开",
+		"Open Locally": "在本地打开"
 	 },
 
 errorMessages: {

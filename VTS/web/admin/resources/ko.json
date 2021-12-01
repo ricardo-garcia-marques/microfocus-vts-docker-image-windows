@@ -1,4 +1,4 @@
-﻿{
+{
 	 "errorOccurred": "오류가 발생했습니다.",
 	 "invalidColumnName": "잘못된 열 이름",
 	 "newColumnName": "새 열 1",
@@ -75,7 +75,7 @@
 	"exportDbApiNote": "보안 위험 때문에 \"export_database\"는 사용되지 않습니다. 서버 쪽에서 \"vts_export\"를 대신 실행하십시오.",
 	"connectDbApiNote": "보안 위험 때문에 \"test_connection\"은 사용되지 않습니다. 서버 쪽에서 \"node db_io.js -connect <connection_string>\"를 대신 실행하십시오.",
 	"userPermissionNeeded": "이 데이터 테이블을 수정하려면 관리자 권한이 있어야 합니다.",
-	"notFoundLocalHelp": "For local help, you need to download and install the Help Center for your product version. Copy download link to clipboard?"
+	"notFoundLocalHelp": "로컬 도움말의 경우 사용 중인 제품 버전에 대한 도움말 센터를 다운로드 및 설치해야 합니다. 다운로드 링크를 클립보드에 복사하시겠습니까?"
 	},
 	 "page" : {
 		"ln": "ko",
@@ -178,10 +178,10 @@
 		"Stop Instances": "인스턴스 중지",
 		"Select All":"모두 선택",
 		"Open the instance UI": "인스턴스 UI 열기",
-		"VTS Help Center": "VTS Help Center",
-		"Help Center Options": "Help Center Options",
-		"Open Online": "Open Online",
-		"Open Locally": "Open Locally"
+		"VTS Help Center": "VTS 도움말 센터",
+		"Help Center Options": "도움말 센터 옵션",
+		"Open Online": "온라인으로 열기",
+		"Open Locally": "로컬로 열기"
 	 },
 
 errorMessages: {

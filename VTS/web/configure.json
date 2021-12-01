@@ -7,7 +7,6 @@
   "enableDiag": false,
   "autoRefreshGrid": true,
   "maxInstancesAllowed": 50,
-  "normalizeCSV": false,
   "autoCreateIndexedColumn": true,
   "admin": {
     "authentication": "None",
@@ -78,8 +77,8 @@
       "end": 7000
     },
     "dbCheck": {
-      "waitingTime": 3,
-      "retryTimes": 10
+      "waitingTime": 1,
+      "retryTimes": 50
     }
   },
   "logger": {
