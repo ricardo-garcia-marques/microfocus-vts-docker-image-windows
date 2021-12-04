@@ -1,6 +1,6 @@
-{  
-  "dbPath": "/var/lib/MF/MF_VTS/db/data",  
-  "defaultDbName" : "Default",
+{
+  "dbPath": "/opt/MF/VTS/db/data",
+  "defaultDbName": "Default",
   "adminPort": 4000,
   "defaultApiPort": 8888,
   "defaultStart": false,
@@ -10,54 +10,70 @@
   "autoCreateIndexedColumn": true,
   "admin": {
     "authentication": "None",
-    "users":
-    [
-      {"user": "johns", "password": "pass", "display": "John Smith"}      
+    "users": [
+      {
+        "user": "johns",
+        "password": "pass",
+        "display": "John Smith"
+      }
     ],
-        
-    "role":{
-      "administrator":[],
-      "user":[]
+    "role": {
+      "administrator": [],
+      "user": []
     },
-	
-	  "requireBasicAuthForAPI": true,
-	
+    "requireBasicAuthForAPI": true,
     "domain": "",
     "domaincontroller": "",
     "useSSL": false,
-	
-	  "certificate": "vts.crt",
-	
-	  "privateKey": "vts.key",
-	
-	  "passphrase": "",
-	
-	  "ca": "vts.crt",
-	  "minVersion": "TLSv1.2",
-	  "maxVersion": "TLSv1.3",
-	  "ciphers": "ALL",
-	
-	  "requestClientCert": false
+    "certificate": "vts.crt",
+    "privateKey": "vts.key",
+    "passphrase": "",
+    "ca": "vts.crt",
+    "minVersion": "TLSv1.2",
+    "maxVersion": "TLSv1.3",
+    "ciphers": "ALL",
+    "requestClientCert": false
   },
-  
   "languages": [
-	    { "en": "en-us" },
-	    { "zh-cn": ["zh", "zh-sg"] },
-		  { "ja": "ja" },
-	    { "ko": ["zh", "zh-sg"] },
-	    { "it": "zh-hk"},
-		  { "es": "zh-hk"},
-		  { "fr": "fr-fr"},
-		  { "ru": "ru"},
-		  "de"
-	],
-  "defaultLanguage":"en",
+    {
+      "en": "en-us"
+    },
+    {
+      "zh-cn": [
+        "zh",
+        "zh-sg"
+      ]
+    },
+    {
+      "ja": "ja"
+    },
+    {
+      "ko": [
+        "zh",
+        "zh-sg"
+      ]
+    },
+    {
+      "it": "zh-hk"
+    },
+    {
+      "es": "zh-hk"
+    },
+    {
+      "fr": "fr-fr"
+    },
+    {
+      "ru": "ru"
+    },
+    "de"
+  ],
+  "defaultLanguage": "en",
   "dbInfo": {
     "connPool": {
       "maxIdle": 3500,
       "maxActive": 3500
     },
-    "dbServerPort": { 
+    "dbServerPort": {
       "start": 6000,
       "end": 7000
     },
@@ -66,14 +82,14 @@
       "retryTimes": 50
     }
   },
-  "logger":{
-    "level":"error", 
-    "transports":{
-      "file":{
+  "logger": {
+    "level": "error",
+    "transports": {
+      "file": {
         "type": "File",
         "path": "/tmp/VTS"
       },
-      "console":{
+      "console": {
         "type": "Console"
       }
     }

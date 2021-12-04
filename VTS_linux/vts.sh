@@ -1,3 +1,3 @@
 #!/bin/sh
-cd /opt/MF/MF_VTS/web
+cd /opt/MF/VTS/web
 ./node main.js

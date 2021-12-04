@@ -3,7 +3,7 @@
 
 print_version()
 {
-product_file="/opt/MF/MF_VTS/version.txt"
+product_file="/opt/MF/VTS/version.txt"
 if [ -f $product_file ]; then
 	cat $product_file
 	echo ""
