@@ -20,15 +20,15 @@ To run VTS with default configuration, use the following command
 
 You can acces VTS in https://localhost:4000.
 
-    docker run -d -t -p 8888:8888 -p 4000:4000 --name=VTS ricardogarciamarques/microfocus_vts:2020.1.0
+    docker run -d -t -p 8888:8888 -p 4000:4000 --name=VTS ricardogarciamarques/microfocus_vts_windows:2020.1.0
 
 Run VTS in http mode, increase the maximun number of instances to 100 and enable diagnosis feature (https://localhost:4000/data/diag)
 
-    docker run -d -t -p 8888:8888 -p 4000:4000 --name=VTS -e USE_SSL=false -e MAX_INSTANCES_ALLOWED=2 -e ENABLE_DIAG=true ricardogarciamarques/microfocus_vts:2020.1.0
+    docker run -d -t -p 8888:8888 -p 4000:4000 --name=VTS -e USE_SSL=false -e MAX_INSTANCES_ALLOWED=2 -e ENABLE_DIAG=true ricardogarciamarques/microfocus_vts_windows:2020.1.0
 
 Version 2020.0.0 and earlier you must publish the ports for the new instances. In the next example, ports from 4001 to 4050 will be used to create new instances.
 
-    docker run -d -t -p 8888:8888 -p 4000-4050:4000-4050 --name=VTS ricardogarciamarques/microfocus_vts:2020.0.0
+    docker run -d -t -p 8888:8888 -p 4000-4050:4000-4050 --name=VTS ricardogarciamarques/microfocus_vts_windows:2020.0.0
 
 **Note: This repo does not publish or maintain a latest tag. Please declare a specific tag when pulling or referencing images from this repo.**
 
@@ -46,4 +46,4 @@ Version 2020.0.0 and earlier you must publish the ports for the new instances. I
 
 ## Repository
 
-* [GitHub](https://github.com/ricardo-garcia-marques/microfocus-vts-docker-image)
+* [GitHub](https://github.com/ricardo-garcia-marques/microfocus-vts-docker-image-windows)
