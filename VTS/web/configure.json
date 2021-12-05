@@ -29,7 +29,8 @@
     "privateKey": "vts.key",
     "passphrase": "",
     "ca": "vts.crt",
-    "tlsVersion": "auto",
+    "minVersion": "TLSv1.2",
+    "maxVersion": "TLSv1.3",
     "ciphers": "ALL",
     "requestClientCert": false
   },
