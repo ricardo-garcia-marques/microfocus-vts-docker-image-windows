@@ -40,10 +40,13 @@ Version 2020.0.0 and earlier you must publish the ports for the new instances. I
 * `MAX_INSTANCES_ALLOWED` - VTS supports multiple instances. Use this setting to configure the maximum number of instances that VTS should support, the default value is 50
 * `AUTO_CREATE_INDEXED_COLUMN` - When set to true, each column is automatically indexed, the default value is true
 * `USE_SSL` - Specifies whether or not HTTPS should be used to access the VTS table from the VTS user interface, the default value is true
-* `TLS_VERSION` - Possible values: auto, tls1.0, tls1.1, tls1.2. The default value is auto
+* `TLS_MIN_VERSION` - Possible values: TLSv1, TLSv1.1, TLSv1.2, TLSv1.3. The default value is TLSv1.2
+* `TLS_MAX_VERSION` - Possible values: TLSv1, TLSv1.1, TLSv1.2, TLSv1.3. The default value is TLSv1.3.
 * `DEFAULT_LANGUAGE` - Sets the VTS server language, the default value is en 
 * `LOGGER_LEVEL` - Specifies the level of logging, the default value is error 
 
+#### Vesions 2020.2.0 and erlier
+* `TLS_VERSION` - (instead `TLS_MAX_VERSION/TLS_MIN_VERSION`) Possible values: auto, tls1.0, tls1.1, tls1.2. The default value is auto
 ## Repository
 
 * [GitHub](https://github.com/ricardo-garcia-marques/microfocus-vts-docker-image-windows)
