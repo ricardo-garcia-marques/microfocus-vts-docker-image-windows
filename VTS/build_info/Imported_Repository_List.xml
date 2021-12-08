@@ -1,8 +1,8 @@
 <report name="Imported_Repository_List" ver="1.0">
-  <Repository product="LT-CORE" config="win32_release" group="LT" svnbranch="trunk" svntag="12e7251c5de7511df4a8b54e3b4d939493a055f4" build="2020.2.0.408" />
-  <Repository product="LT-TPS" config="win32_release" group="LT" svnbranch="trunk" svntag="f9581bf152eed63b00ffaa6e1c538333178021d9" build="2020.0.0.322" />
-  <Repository product="LT-INFRA" config="win32_release" group="LT" svnbranch="trunk" svntag="69e31edc3b7e83b50cec4350695df4f6e5d3d39e" build="2020.2.0.273" />
-  <Repository product="LT-LR-APP-INFRA" config="win32_release" group="LT" svnbranch="trunk" svntag="54e48f953425f1f9c6d151a3a8b439be279f50bb" build="2020.2.0.274" />
-  <Repository product="LT-CONTROLLER" config="win32_release" group="LT" svnbranch="trunk" svntag="881c6fe6757a609c79c53f933999937f100ad660" build="2020.2.0.184" />
-  <Repository product="UTT" config="win32_release" group="LT" svnbranch="trunk" svntag="48b56bfddfe3940fe5731b7fe6f0148c2dc317ed" build="14.0.3128.0" />
+  <Repository product="LT-CORE" config="win32_release" group="LT" svnbranch="trunk" svntag="c9d9c0eb4ea8ea5e09350bdb173e8fdd8164a97e" build="2020.3.0.356" />
+  <Repository product="LT-TPS" config="win32_release" group="LT" svnbranch="trunk" svntag="ecf883da6f810c8fa7212c110d79a490ef8b5ddf" build="2020.0.0.381" />
+  <Repository product="LT-INFRA" config="win32_release" group="LT" svnbranch="trunk" svntag="2c8320b8c2b813c07e43ad1de91e086df2f10e49" build="2020.3.0.217" />
+  <Repository product="LT-LR-APP-INFRA" config="win32_release" group="LT" svnbranch="trunk" svntag="4e0ba3318b6b96043bbe7f53040095e910ee4fa4" build="2020.3.0.153" />
+  <Repository product="LT-CONTROLLER" config="win32_release" group="LT" svnbranch="trunk" svntag="f2690dcb94c837a2f90496edd6b3e3e79d1e215f" build="2020.3.0.160" />
+  <Repository product="UTT" config="win32_release" group="LT" svnbranch="trunk" svntag="42a44b2fcf3bf2118cf82dffc731254415fe57e4" build="14.0.3167.0" />
 </report>

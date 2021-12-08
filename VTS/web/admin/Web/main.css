@@ -120,6 +120,7 @@ div.banner
 .ui-button
 {
 	box-shadow: 1px 1px 3px #aaa;
+	padding: .4em 2.0em;
 }
 
 #tbtnActions
@@ -189,7 +190,6 @@ div.banner
 }
 .pop-menu li
 {
-	padding-right:15px!important;
 	white-space:nowrap;
 }
 
@@ -276,7 +276,7 @@ td.ui-state-highlight
 /*******menu*******/
 ul.ui-menu
 {
-	margin-top:2px;
+	margin-top:12px;
 	text-shadow:none;
 	max-width:18em;
 }
@@ -624,4 +624,35 @@ span.enable-script
     top: -.5em; 
 	margin-top: -2em;
 	display:none;
+}
+.ui-menu-item-wrapper{
+	text-decoration-line:none
+}
+.ui-widget {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+}
+.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default,.ui-button,html .ui-button.ui-state-disabled:active{
+    font-weight: bold;
+}
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
+    font-weight: bold;
+}
+
+.ui-menu .ui-menu-item a {
+    text-decoration: none;
+    display: block;
+    padding: 2px 10px 2px 1px;
+    line-height: 1.5;
+    min-height: 0;
+    font-weight: bold;
+}
+
+.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active {
+    border: 1px solid #fbd850;
+    background: #fff;
+    font-weight: bold;
+}
+
+#mnuOptions input{
+	margin: 3px 3px 3px 4px;
 }
