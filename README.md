@@ -7,7 +7,7 @@ This is an unofficial Docker image for [Micro Focus Virtual Table Server](https:
 These instructions will give you a copy of the project up and running on
 your local machine for development and testing purposes
 
-If you want to use  only an image, you must see [docker hub container repository for this image](https://hub.docker.com/r/ricardogarciamarques/microfocus_vts) and follow the instruccions
+If you want to use  only an image, you must see [docker hub container repository for this image](https://hub.docker.com/r/ricardogarciamarques/microfocus_vts_windows) and follow the instruccions
 
 ### Prerequisites
 
@@ -19,28 +19,28 @@ Requirements for the software and other tools to build, test and push
 
 Clone repository
 
-    git clone https://github.com/ricardo-garcia-marques/microfocus-vts-docker-image.git
+    git clone https://github.com/ricardo-garcia-marques/microfocus-vts-docker-image-windows.git
 
 ## Build image
 
-    docker build --rm -t microfocus_vts:local .
+    docker build --rm -t microfocus_vts_windows:local .
 
 ## Run image
 
 Run  local image with default options
 
-    docker run -d -t -p 8888:8888 -p 4000:4000 --name=Microfocus_VTS microfocus_vts:local
+    docker run -d -t -p 8888:8888 -p 4000:4000 --name=Microfocus_VTS_Windows microfocus_vts_windows:local
 
-To see other options and how to run, see [docker hub readme](https://hub.docker.com/r/ricardogarciamarques/microfocus_vts)
+To see other options and how to run, see [docker hub readme](https://hub.docker.com/r/ricardogarciamarques/microfocus_vts_windows)
 
 
 ## Publish image
 
 ### Manual publish image from comand line
 
-    docker image tag microfocus_vts:local microfocus_vts:latest
+    docker image tag microfocus_vts_windows:local microfocus_vts_windows:latest
 
-    docker push your_dockerhub_profile/microfocus_vts:latest
+    docker push your_dockerhub_profile/microfocus_vts_windows:latest
 
 ### Automatic publish
 
