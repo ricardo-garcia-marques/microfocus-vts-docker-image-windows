@@ -91,11 +91,11 @@
 			{"de": "Немецкий"}
 		],
 		"language": "Язык",
-		"VTS_Admin_UI": "Интерфейс администратора виртуального сервера таблиц",
+		"VTS_Admin_UI": "Интерфейс администратора Virtual Table Server",
 		"User": "Пользователь",
 		"Logout": "Выход",
 		"Help": "Справка",
-		"Virtual Table Server" : "Сервер виртуальных таблиц (VTS)",
+		"Virtual Table Server" : "Virtual Table Server",
 		"Access from Script": "Доступ из скрипта",
 		"Import Samples": "Импорт образцов",
 		"Customers": "Клиенты",

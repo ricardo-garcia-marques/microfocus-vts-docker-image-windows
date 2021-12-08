@@ -87,7 +87,7 @@
     "transports": {
       "file": {
         "type": "File",
-        "path": "C:/VTS/db/data"
+        "path": "C:/VTS/logs"
       },
       "console": {
         "type": "Console"
