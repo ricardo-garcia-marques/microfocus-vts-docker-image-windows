@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog].
 
-## [Unreleased]
+## [2020.3.0] - 2021-12-08
 ### Added
 - Enviroment variables TLS_MAX_VERSION, TLS_MIN_VERSION, CIPHERS
 ### Changed
