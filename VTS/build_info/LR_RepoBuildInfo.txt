@@ -1,5 +1,5 @@
 Repository Name: LT-LR 
 Product Name: LoadRunner 
-Product Version: 2020.3.0 
-Build ID: 305 
-SVN tag: build_20.3.0.305 
+Product Version: 2021.0.0 
+Build ID: 371 
+SVN tag: build_21.0.0.371 
