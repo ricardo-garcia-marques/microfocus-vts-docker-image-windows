@@ -4,8 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog].
 
-## [Unreleased]
+
+## [2021.1.0] - 2021-12-12
 - VTS code updated to version 2021.1.0
+
 ## [2021.0.0] - 2021-12-08
 ### Changed
 - VTS code updated to version 2021.0.0
